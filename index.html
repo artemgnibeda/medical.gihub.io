@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+
+<html >
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SE7ENSKY Frontend studio</title>
+
+<link rel="stylesheet" id="wp-block-library-css" href="./files/style.min.css" type="text/css" media="all">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<meta name="theme-color" content="#FF6900">
+
+
+	<link href="files/css/main.css" rel="stylesheet" as="style" >
+
+
+
+
+
+	<style type="text/css">
+		.fb_hidden {
+			position: absolute;
+			top: -10000px;
+			z-index: 10001
+		}
+
+		.fb_reposition {
+			overflow: hidden;
+			position: relative
+		}
+
+		.fb_invisible {
+			display: none
+		}
+
+		.fb_reset {
+			background: none;
+			border: 0;
+			border-spacing: 0;
+			color: #000;
+			cursor: auto;
+			direction: ltr;
+			font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+			font-size: 11px;
+			font-style: normal;
+			font-variant: normal;
+			font-weight: normal;
+			letter-spacing: normal;
+			line-height: 1;
+			margin: 0;
+			overflow: visible;
+			padding: 0;
+			text-align: left;
+			text-decoration: none;
+			text-indent: 0;
+			text-shadow: none;
+			text-transform: none;
+			visibility: visible;
+			white-space: normal;
+			word-spacing: normal
+		}
+
+		.fb_reset>div {
+			overflow: hidden
+		}
+
+		@keyframes fb_transform {
+			from {
+				opacity: 0;
+				transform: scale(.95)
+			}
+			to {
+				opacity: 1;
+				transform: scale(1)
+			}
+		}
+
+		.fb_animate {
+			animation: fb_transform .3s forwards
+		}
+
+		.fb_dialog {
+			background: rgba(82, 82, 82, .7);
+			position: absolute;
+			top: -10000px;
+			z-index: 10001
+		}
+
+		.fb_dialog_advanced {
+			border-radius: 8px;
+			padding: 10px
+		}
+
+		.fb_dialog_content {
+			background: #fff;
+			color: #373737
+		}
+
+		.fb_dialog_close_icon {
+			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;
+			cursor: pointer;
+			display: block;
+			height: 15px;
+			position: absolute;
+			right: 18px;
+			top: 17px;
+			width: 15px
+		}
+
+		.fb_dialog_mobile .fb_dialog_close_icon {
+			left: 5px;
+			right: auto;
+			top: 5px
+		}
+
+		.fb_dialog_padding {
+			background-color: transparent;
+			position: absolute;
+			width: 1px;
+			z-index: -1
+		}
+
+		.fb_dialog_close_icon:hover {
+			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent
+		}
+
+		.fb_dialog_close_icon:active {
+			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent
+		}
+
+		.fb_dialog_iframe {
+			line-height: 0
+		}
+
+		.fb_dialog_content .dialog_title {
+			background: #6d84b4;
+			border: 1px solid #365899;
+			color: #fff;
+			font-size: 14px;
+			font-weight: bold;
+			margin: 0
+		}
+
+		.fb_dialog_content .dialog_title>span {
+			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;
+			float: left;
+			padding: 5px 0 7px 26px
+		}
+
+		body.fb_hidden {
+			height: 100%;
+			left: 0;
+			margin: 0;
+			overflow: visible;
+			position: absolute;
+			top: -10000px;
+			transform: none;
+			width: 100%
+		}
+
+		.fb_dialog.fb_dialog_mobile.loading {
+			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;
+			min-height: 100%;
+			min-width: 100%;
+			overflow: hidden;
+			position: absolute;
+			top: 0;
+			z-index: 10001
+		}
+
+		.fb_dialog.fb_dialog_mobile.loading.centered {
+			background: none;
+			height: auto;
+			min-height: initial;
+			min-width: initial;
+			width: auto
+		}
+
+		.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner {
+			width: 100%
+		}
+
+		.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content {
+			background: none
+		}
+
+		.loading.centered #fb_dialog_loader_close {
+			clear: both;
+			color: #fff;
+			display: block;
+			font-size: 18px;
+			padding-top: 20px
+		}
+
+		#fb-root #fb_dialog_ipad_overlay {
+			background: rgba(0, 0, 0, .4);
+			bottom: 0;
+			left: 0;
+			min-height: 100%;
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 100%;
+			z-index: 10000
+		}
+
+		#fb-root #fb_dialog_ipad_overlay.hidden {
+			display: none
+		}
+
+		.fb_dialog.fb_dialog_mobile.loading iframe {
+			visibility: hidden
+		}
+
+		.fb_dialog_mobile .fb_dialog_iframe {
+			position: sticky;
+			top: 0
+		}
+
+		.fb_dialog_content .dialog_header {
+			background: linear-gradient(from(#738aba), to(#2c4987));
+			border-bottom: 1px solid;
+			border-color: #043b87;
+			box-shadow: white 0 1px 1px -1px inset;
+			color: #fff;
+			font: bold 14px Helvetica, sans-serif;
+			text-overflow: ellipsis;
+			text-shadow: rgba(0, 30, 84, .296875) 0 -1px 0;
+			vertical-align: middle;
+			white-space: nowrap
+		}
+
+		.fb_dialog_content .dialog_header table {
+			height: 43px;
+			width: 100%
+		}
+
+		.fb_dialog_content .dialog_header td.header_left {
+			font-size: 12px;
+			padding-left: 5px;
+			vertical-align: middle;
+			width: 60px
+		}
+
+		.fb_dialog_content .dialog_header td.header_right {
+			font-size: 12px;
+			padding-right: 5px;
+			vertical-align: middle;
+			width: 60px
+		}
+
+		.fb_dialog_content .touchable_button {
+			background: linear-gradient(from(#4267B2), to(#2a4887));
+			background-clip: padding-box;
+			border: 1px solid #29487d;
+			border-radius: 3px;
+			display: inline-block;
+			line-height: 18px;
+			margin-top: 3px;
+			max-width: 85px;
+			padding: 4px 12px;
+			position: relative
+		}
+
+		.fb_dialog_content .dialog_header .touchable_button input {
+			background: none;
+			border: none;
+			color: #fff;
+			font: bold 12px Helvetica, sans-serif;
+			margin: 2px -12px;
+			padding: 2px 6px 3px 6px;
+			text-shadow: rgba(0, 30, 84, .296875) 0 -1px 0
+		}
+
+		.fb_dialog_content .dialog_header .header_center {
+			color: #fff;
+			font-size: 16px;
+			font-weight: bold;
+			line-height: 18px;
+			text-align: center;
+			vertical-align: middle
+		}
+
+		.fb_dialog_content .dialog_content {
+			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;
+			border: 1px solid #4a4a4a;
+			border-bottom: 0;
+			border-top: 0;
+			height: 150px
+		}
+
+		.fb_dialog_content .dialog_footer {
+			background: #f5f6f7;
+			border: 1px solid #4a4a4a;
+			border-top-color: #ccc;
+			height: 40px
+		}
+
+		#fb_dialog_loader_close {
+			float: left
+		}
+
+		.fb_dialog.fb_dialog_mobile .fb_dialog_close_button {
+			text-shadow: rgba(0, 30, 84, .296875) 0 -1px 0
+		}
+
+		.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon {
+			visibility: hidden
+		}
+
+		#fb_dialog_loader_spinner {
+			animation: rotateSpinner 1.2s linear infinite;
+			background-color: transparent;
+			background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+			height: 24px;
+			width: 24px
+		}
+
+		@keyframes rotateSpinner {
+			0% {
+				transform: rotate(0deg)
+			}
+			100% {
+				transform: rotate(360deg)
+			}
+		}
+
+		.fb_iframe_widget {
+			display: inline-block;
+			position: relative
+		}
+
+		.fb_iframe_widget span {
+			display: inline-block;
+			position: relative;
+			text-align: justify
+		}
+
+		.fb_iframe_widget iframe {
+			position: absolute
+		}
+
+		.fb_iframe_widget_fluid_desktop,
+		.fb_iframe_widget_fluid_desktop span,
+		.fb_iframe_widget_fluid_desktop iframe {
+			max-width: 100%
+		}
+
+		.fb_iframe_widget_fluid_desktop iframe {
+			min-width: 220px;
+			position: relative
+		}
+
+		.fb_iframe_widget_lift {
+			z-index: 1
+		}
+
+		.fb_iframe_widget_fluid {
+			display: inline
+		}
+
+		.fb_iframe_widget_fluid span {
+			width: 100%
+		}
+
+		.fb_customer_chat_bounce_in_v2 {
+			animation-duration: 300ms;
+			animation-name: fb_bounce_in_v2;
+			transition-timing-function: ease-in
+		}
+
+		.fb_customer_chat_bounce_out_v2 {
+			animation-duration: 300ms;
+			animation-name: fb_bounce_out_v2;
+			transition-timing-function: ease-in
+		}
+
+		.fb_customer_chat_bounce_in_v2_mobile_chat_started {
+			animation-duration: 300ms;
+			animation-name: fb_bounce_in_v2_mobile_chat_started;
+			transition-timing-function: ease-in
+		}
+
+		.fb_customer_chat_bounce_out_v2_mobile_chat_started {
+			animation-duration: 300ms;
+			animation-name: fb_bounce_out_v2_mobile_chat_started;
+			transition-timing-function: ease-in
+		}
+
+		.fb_customer_chat_bubble_pop_in {
+			animation-duration: 250ms;
+			animation-name: fb_customer_chat_bubble_bounce_in_animation
+		}
+
+		.fb_customer_chat_bubble_animated_no_badge {
+			box-shadow: 0 3px 12px rgba(0, 0, 0, .15);
+			transition: box-shadow 150ms linear
+		}
+
+		.fb_customer_chat_bubble_animated_no_badge:hover {
+			box-shadow: 0 5px 24px rgba(0, 0, 0, .3)
+		}
+
+		.fb_customer_chat_bubble_animated_with_badge {
+			box-shadow: -5px 4px 14px rgba(0, 0, 0, .15);
+			transition: box-shadow 150ms linear
+		}
+
+		.fb_customer_chat_bubble_animated_with_badge:hover {
+			box-shadow: -5px 8px 24px rgba(0, 0, 0, .2)
+		}
+
+		.fb_invisible_flow {
+			display: inherit;
+			height: 0;
+			overflow-x: hidden;
+			width: 0
+		}
+
+		.fb_mobile_overlay_active {
+			background-color: #fff;
+			height: 100%;
+			overflow: hidden;
+			position: fixed;
+			visibility: hidden;
+			width: 100%
+		}
+
+		@keyframes fb_bounce_in_v2 {
+			0% {
+				opacity: 0;
+				transform: scale(0, 0);
+				transform-origin: bottom right
+			}
+			50% {
+				transform: scale(1.03, 1.03);
+				transform-origin: bottom right
+			}
+			100% {
+				opacity: 1;
+				transform: scale(1, 1);
+				transform-origin: bottom right
+			}
+		}
+
+		@keyframes fb_bounce_in_v2_mobile_chat_started {
+			0% {
+				opacity: 0;
+				top: 20px
+			}
+			100% {
+				opacity: 1;
+				top: 0
+			}
+		}
+
+		@keyframes fb_bounce_out_v2 {
+			0% {
+				opacity: 1;
+				transform: scale(1, 1);
+				transform-origin: bottom right
+			}
+			100% {
+				opacity: 0;
+				transform: scale(0, 0);
+				transform-origin: bottom right
+			}
+		}
+
+		@keyframes fb_bounce_out_v2_mobile_chat_started {
+			0% {
+				opacity: 1;
+				top: 0
+			}
+			100% {
+				opacity: 0;
+				top: 20px
+			}
+		}
+
+		@keyframes fb_customer_chat_bubble_bounce_in_animation {
+			0% {
+				bottom: 6pt;
+				opacity: 0;
+				transform: scale(0, 0);
+				transform-origin: center
+			}
+			70% {
+				bottom: 18pt;
+				opacity: 1;
+				transform: scale(1.2, 1.2)
+			}
+			100% {
+				transform: scale(1, 1)
+			}
+		}
+	</style>
+</head>
+
+<body>
+<div id="app" style="height: 100%">
+	<div style="height: 100%;">
+		<div class="app">
+			<header class="header">
+				<div class="header__logo">
+					<div class="logo"><a class="logo__link" title="" href="index.html"><span class="logo__image"><img
+							src="files/img/logo.png" alt=""></a></div>
+				</div>
+			</header>
+			<div>
+				<button class="menu-burger"><span class="menu-burger__item"></span><span class="menu-burger__item"></span><span class="menu-burger__item"></span></button>
+				<div class="menu">
+					<div class="overlay"></div>
+					<div class="menu__body">
+						<ul class="menu__list">
+							<li id="menu__item_0" class="menu__item current"><a class="menu__link" href="#home">Home</a></li>
+							<li id="menu__item_6" class="menu__item"><a class="menu__link" href="#competencies">Competencies</a></li>
+							<li id="menu__item_1" class="menu__item"><a class="menu__link" href="#partnersTiles">Work</a></li>
+							<li id="menu__item_7" class="menu__item"><a class="menu__link" href="#ourPartners">Our Partners</a></li>
+							<li id="menu__item_2" class="menu__item"><a href="#reviews" target="_blank" rel="noopener noreferrer" class="menu__link">Reviews</a></li>
+							<li id="menu__item_3" class="menu__item"><a class="menu__link" href="">News</a></li>
+							<li id="menu__item_4" class="menu__item"><a class="menu__link" href="">About</a></li>
+							<li id="menu__item_5" class="menu__item"><a class="menu__link" href="">Contact</a></li>
+						</ul>
+						<div class="menu__footer"><a href="mailto:info.meritmedical@com.ua">info.meritmedical@com.ua</a></div>
+					</div>
+				</div>
+			</div>
+			<main class="main">
+				<div id="intro" class="IntroPage" style="background-color: #009cd7;">
+					<div class="bg-video">
+						<video autoplay muted loop>
+							<source src="files/video/v1.mp4" type="video/mp4">
+							<source src="files/video/home-video.ogv" type="video/ogv">
+							<source src="files/video/home-video.webm" type="video/webm">
+						</video>
+					</div>
+					<section class="promo" id="home">
+						<div class="promo__inner">
+							<h1 class="promo__title">Merit Medical</h1>
+							<div class="promo__subtitle container">Merit Medical is family owned company established in 2009.
+								We register pharmaceutical products and manage lifecycle activities around it 24/7.
+								Doing it with love to life and being responsible for life.
+
+								Our goal is being reliable partner via registration and support pharmaceutical products
+								in Ukraine and CIS markets in order to make people’s life healthy, longer and qualitative.</div>
+						</div>
+						<div class="promo__footer"><a href="mailto:info.meritmedical@com.ua" style="color: rgb(255, 255, 255);">info.meritmedical@com.ua</a>
+							<br><a href="#competencies" class="forward"><span class="forward__icon"></span><span class="forward__icon"></span><span class="forward__icon"></span></a></div>
+					</section>
+
+					<section id="competencies" class="competencies" style="background: #008cc7;">
+						<div class="container">
+							<h1 class="heading-styled">Key competence</h1>
+							<ul class="partners-tiles__list">
+								<li class="partners-tiles__list-item">
+									<div class="partners-tiles__item"><span class="partners-tiles__item-title">Registration UA/CIS</span><span class="partners-tiles__item-description"></span></div>
+								</li>
+								<li class="partners-tiles__list-item">
+									<div class="partners-tiles__item"><span class="partners-tiles__item-title">Pharmacovigilance</span><span class="partners-tiles__item-description"></span></div>
+								</li>
+								<li class="partners-tiles__list-item">
+									<div class="partners-tiles__item"><span class="partners-tiles__item-title">Price registration </span><span class="partners-tiles__item-description"></span></div>
+								</li>
+								<li class="partners-tiles__list-item">
+									<div class="partners-tiles__item"><span class="partners-tiles__item-title">Renewal </span><span class="partners-tiles__item-description"></span></div>
+								</li>
+								<li class="partners-tiles__list-item">
+									<div class="partners-tiles__item"><span class="partners-tiles__item-title">GMP Recognition </span><span class="partners-tiles__item-description"></span></div>
+								</li>
+								<li class="partners-tiles__list-item">
+									<div class="partners-tiles__item"><span class="partners-tiles__item-title">Artworks </span><span class="partners-tiles__item-description"></span></div>
+								</li>
+								<li class="partners-tiles__list-item">
+									<div class="partners-tiles__item"><span class="partners-tiles__item-title">Variations</span><span class="partners-tiles__item-description"></span></div>
+								</li>
+								<li class="partners-tiles__list-item">
+									<div class="partners-tiles__item"><span class="partners-tiles__item-title">Translations</span><span class="partners-tiles__item-description"></span></div>
+								</li>
+								<li class="partners-tiles__list-item">
+									<div class="partners-tiles__item"><span class="partners-tiles__item-title">State Inspection database submission</span><span class="partners-tiles__item-description"></span></div>
+								</li>
+
+							</ul>
+						</div>
+					</section>
+					<div class="separator-grad" style="background: linear-gradient(to top, #4586CF,#008cc7);"></div>
+					<section id="partnersTiles" class="partners-tiles" style="background: #4586CF;">
+						<div class="container">
+							<h1 class="partners-tiles__title heading-styled">Who we work with</h1>
+							<ul class="partners-tiles__list">
+								<li class="partners-tiles__list-item">
+									<div class="partners-tiles__item"><span class="partners-tiles__item-title">Startups</span><span class="partners-tiles__item-description"></span></div>
+								</li>
+								<li class="partners-tiles__list-item">
+									<div class="partners-tiles__item"><span class="partners-tiles__item-title">Digital agencies</span><span class="partners-tiles__item-description"></span></div>
+								</li>
+								<li class="partners-tiles__list-item">
+									<div class="partners-tiles__item"><span class="partners-tiles__item-title">Design studios</span><span class="partners-tiles__item-description"></span></div>
+								</li>
+								<li class="partners-tiles__list-item">
+									<div class="partners-tiles__item"><span class="partners-tiles__item-title">Creative studios</span><span class="partners-tiles__item-description"></span></div>
+								</li>
+								<li class="partners-tiles__list-item">
+									<div class="partners-tiles__item"><span class="partners-tiles__item-title">Web projects</span><span class="partners-tiles__item-description"></span></div>
+								</li>
+								<li class="partners-tiles__list-item">
+									<div class="partners-tiles__item"><span class="partners-tiles__item-title">those</span><span class="partners-tiles__item-description">who need upscale frontend</span></div>
+								</li>
+							</ul>
+						</div>
+					</section>
+
+					<div class="separator-grad" style="background: linear-gradient(to top, #009cd7 ,#4586CF);"></div>
+					<section id="ourPartners" class="jobs">
+						<div class="container">
+							<h1 class="jobs__title heading-styled">Our Partners 2009-2020</h1>
+							<ul class="jobs__list">
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">Representative office Roshe Ukraine LLC  (Switzerland) </span></span><span class="jobs__tile-location">in Ukraine</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">Representative office Alcon Pharmaceuticals Ltd (Switzerland)</span></span><span class="jobs__tile-location">in Ukraine</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">Representative office LLC Reckitt Benckiser (USA)</span></span><span class="jobs__tile-location">in Ukraine</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">Representative office  Abbott Laboratoris  S.A. (USA)</span></span><span class="jobs__tile-location">in Ukraine</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">Representative office Abbvie Biopharmaceuitcal GmbH (USA)</span></span><span class="jobs__tile-location">in Ukraine</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">Representative office Polpharma S.A. (Poland) </span></span><span class="jobs__tile-location">in Ukraine</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">Representtaive office LLC Aspharma-Ukraine </span></span><span class="jobs__tile-location">in Ukraine</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">LLC SYSTEM Farm </span></span><span class="jobs__tile-location">in Ukraine</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">Octapharma AG </span></span><span class="jobs__tile-location">Switzerland</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">Octapharma </span></span><span class="jobs__tile-location">Austria</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">Santen Oy </span></span><span class="jobs__tile-location">Finland</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">Farmila-Thea Farmaceutici S.p.a </span></span><span class="jobs__tile-location"> Italy</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">Laboratoire Unither </span></span><span class="jobs__tile-location"> France</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">Laboratoires Thea </span></span><span class="jobs__tile-location"> France</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">Novagali Pharma </span></span><span class="jobs__tile-location"> France</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">Laboratoire Agguetant </span></span><span class="jobs__tile-location"> France</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">ABC Farma </span></span><span class="jobs__tile-location"> Lithuania</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">Beres Pharmaceuticals Ltd  </span></span><span class="jobs__tile-location"> Hungary</span></a></li>
+								<li class="jobs__item"><a class="jobs__tile" href="javascript:void(0);"><span class="jobs__tile-title"><span class="jobs__tile-text">i.com medical GmbH  </span></span><span class="jobs__tile-location"> Germany</span></a></li>
+							</ul>
+						</div>
+					</section>
+
+					<section id="reviews" class="reviews">
+						<div class="container">
+							<h1 class="reviews__title heading-styled">Reviews</h1>
+							<div class="reviews-slider">
+								<div class="reviews-item">
+
+								</div>
+							</div>
+						</div>
+					</section>
+					<div class="separator-grad" style="background: linear-gradient(to top, #008cc7,#009cd7);"></div>
+					<section id="order" class="order" style="background: #008cc7;">
+						<div class="container">
+							<h1 class="heading-styled order__title">Seize opportunities with us.</h1>
+							<div class="promo__subtitle container">You are welcome contact us 24/7.</div>
+							<div class="order__form">
+								<form novalidate="">
+									<div class="order__fields">
+										<div class="order__row">
+											<div class="order__col-6">
+												<div class="form-group">
+													<input name="name" id="field-name" type="text" value="">
+													<label for="field-name">Name</label>
+												</div>
+											</div>
+											<div class="order__col-6">
+												<div class="form-group">
+													<input name="email" id="field-email" type="email" value="">
+													<label for="field-email">Email</label>
+												</div>
+											</div>
+										</div>
+										<div class="order__row">
+											<div class="order__col-12">
+												<div class="form-group text-center">
+													<button type="submit" class="btn btn-xs-block btn_add" ><span>Submit</span></button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</section>
+
+
+				</div>
+			</main>
+			<div class="footer layer">
+				<div class="container">
+					<nav class="menu">
+						<ul class="footer-menu"></ul>
+					</nav>
+					<div class="copyright">© 2020,&nbsp;<a  href="">Merit Medical </a></div><a href="mailto:info.meritmedical@com.ua">info.meritmedical@com.ua</a>
+					<div class="social-links"><a href="https://www.facebook.com/se7ensky.studio" title="Facebook" target="_blank" rel="noopener noreferrer" class="social-links__item social-links__item_fb"><span class="social-links__item-icon"></span><span class="social-links__item-label">fb.com/info.meritmedical</span></a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="crossorigin="anonymous"></script>
+<script src="files/js/main.js"></script>
+
+
+</body></html>
